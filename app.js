@@ -1,155 +1,47 @@
-// console.log("sync1")
-// console.log("sync2")
-// console.log("sync3")
-// console.log("sync4")
-
-// // for (let i = 0; i <= 20000; i++) {
-// //     console.log(i)
-// // }
-
-// setTimeout(() => {
-//     console.log("1 second Async")
-// }, 1000);
-
-// setTimeout(() => {
-//     console.log("Async")
-// }, 2000);
-
-
-// console.log("sync5")
-// console.log("sync6")
-// console.log("sync7")
-
-
-
-//First Way (CallBack Hell)
-
-// function ChaiWala() {
-//     setTimeout(() => {
-//         console.log("chai done")
-//         setTimeout(() => {
-//             console.log("samosa done")
-//             setTimeout(() => {
-//                 console.log("chatni done")
-//                 setTimeout(() => {
-//                    console.log("done!!")
-//                    setTimeout(() => {
-//                     console.log("last done")
-//                    }, 2000);
-//                 }, 200);
-//             }, 3000);
-//         }, 2000);
-//     }, 2000);
+// var a = 20;
+// function Add(c) {
+//     return;
+//     console.log("hello");
 // }
-
-// ChaiWala()
-
-
-
-
-
-// Second Way
-
-// function ChaiWala(cb) {
-//     setTimeout(() => {
-//         cb("chai done")
-//     }, 2000);
-// }
-
-// function ChatniCallBack() {
-//     console.log("chatni done")
-// }
-
-// function SamosaCallBack() {
-//     console.log("samosa done")
-//     setTimeout(() => {
-//         ChatniCallBack()
-//     }, 3000);
-// }
-
-// function ChaiCallBack(a) {
-//     console.log(a)
-//     setTimeout(() => {
-//         SamosaCallBack()
-//     }, 2000);
-// }
-
-// ChaiWala(ChaiCallBack)
+// var sum1 = Add(a);
+// // var sum2 = Add(10);
+// console.log(sum1)
 
 
 
+// let p1 = new Promise(function(resolve, reject) {
+//     setTimeout(resolve, 500, 'p1');
+// });
 
+// let p2 = new Promise(function(resolve, reject) {
+//     setTimeout(resolve, 1000, 'p2');
+// });
 
+// let p3 = new Promise(function(resolve, reject) {
+//     setTimeout(resolve, 1200, 'p3');
+// });
 
-// function new_promise(a) {
-//     return new Promise((resolve, reject) => {
+// let p4 = new Promise(function(resolve, reject) {
+//     setTimeout(reject, 300, 'p4');
+// });
 
-//         setTimeout(() => {
-//             if (a > 5) {
-//                 resolve(a)
-//             }
-//             else {
-//                 reject("error")
-//             }
-//         }, 2000);
-//     })
-// }
+// let p5 = new Promise(function(resolve, reject) {
+//     setTimeout(resolve, 800, 'p5');
+// });
 
+// let promise = Promise.all([p1.catch(function() {}), p2.catch(function() {}), p3.catch(function() {}), p4.catch(function() {}), p5.catch(function() {})]);
 
-// new_promise(6)
-//     .then((data) => {
-//         console.log(data)
-//         return new_promise(7)
-//     })
-//     .then((data) => {
-//         console.log(data)
-//         return new_promise(2)
-//     })
-//     .then((data) => {
-//         console.log(data)
-//     })
-//     .catch((err) => {
-//         console.log(err)
-//         return new_promise(8)
-//     })
-//     .then((data) => {
-//         console.log(data)
-//         return new_promise(2)
-//     })
-//     .catch((err) => {
-//         console.log(err)
-//     })
+// promise
 
-
-
-
-
-
-// function job() {
-//     return new Promise(function (resolve, reject) {
-//         reject();
+// .then(function(data) {
+//     data.forEach(function(data) {
+//         console.log("data ",data);
 //     });
-// }
-// let promise = job();
-// promise.then(function () {
-//     console.log('Success 1');
-// }).then(function () {
-//         console.log('Success 2');
-//     })
+// })
+// .catch(function(error) {
+//     console.error('error', error);
+// });
 
-//     .then(function () {
-//         console.log('Success 3');
-//     })
-//     .catch(function () {
-//         console.log('Error 1');
-//     })
-//     .then(function () {
-//         console.log('Success 4');
-//     })
-//     .then(function () {
-//         console.log("success 5")
-//     })
-//     .catch(() => {
-//         console.log("Error 2")
-//     })
-    
+
+
+
